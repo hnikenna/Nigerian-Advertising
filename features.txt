@@ -1,0 +1,10 @@
+App Structure:
+    About - Info about us
+    Dash - For Ad companies to setup their info and ad plan
+    Dash - For Developers to manage their ad revenues
+    Search - For Users to find Ad companies
+    Run - For Users to run ads through us
+    Dev - For Developers to place our ads on their website
+
+PRO features:
+    Cover photo for companies

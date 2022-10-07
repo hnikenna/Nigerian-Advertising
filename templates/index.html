@@ -1,0 +1,553 @@
+<!DOCTYPE html>{% load static %}{% load humanize %}
+<html lang="en">
+<head>
+
+    <title>Nigerian Advertising HTML Template with Bootstrap 5 Beta 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-icon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <!-- Load Require CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font CSS -->
+    <link href="{% static 'css/boxicon.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="{% static 'css/templatemo.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+
+    <link rel="icon" href="/favicon.ico"/>
+    <link rel="mask-icon" href="/tabicon.svg" color="#0F0D0A"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous"/>
+    <link rel="stylesheet" data-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Playfair+Display:wght@400;700&amp;display=swap"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="viewport" content="width=device-width"/>
+    <meta charSet="utf-8"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@#"/>
+    <meta name="twitter:creator" content="@#"/>
+    <meta property="fb:app_id" content="614655231979033"/>
+    <meta property="fb:admins" content="70569527"/>
+    <script async="" src="https://secure.leadforensics.com/js/118936.js"></script>
+    <noscript><img class="hidden" src="https://secure.leadforensics.com/118936.png" alt="leadforensics"/></noscript>
+    <link rel="alternate" href="https://www.nigerianadvertising.com" hrefLang="en"/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="googlebot" content="index,follow"/>
+    <meta property="og:title" content="Bringing Nigerians to You. - Nigerian Advertising"/>
+    <meta property="og:description" content="Discover the most relevant agencies for your project based on your own specific requirements."/>
+    <meta property="og:url" content="https://www.nigerianadvertising.com"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="/_next/static/images/default-meta-918ef6c749281d428f80e38dabbb70f5.jpg"/>
+    <meta property="og:site_name" content="Nigerian Advertising"/>
+    <link rel="canonical" href="https://www.nigerianadvertising.com"/>
+    <meta property="name" content="Building Great Business Stories. - Sortlist"/>
+    <meta name="description" content="Discover the most relevant agencies for your project based on your own specific requirements."/>
+    <meta property="image" content="#"/>
+    <script src="{% static 'js/loader.js' %}"></script>
+</head>
+<body onload="showPage()">
+<div class="col-sm-6 text-center" id="loader"><div class="loader7"></div></div>
+<div id="body" style="display: none;">
+    <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow sticky">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand h1" href="/">
+                <i class='bx bx-buildings bx-sm text-dark'></i>
+                <span class="text-dark h4">Nigerian</span> <span class="text-primary h4">Advertising</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
+                <div class="flex-fill mx-xl-5 mb-2">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link btn-outline-primary rounded-pill px-1" href="">Blog*</a>-->
+<!--                        </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-1" href="/about">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-1" href="/connect">Find Agencies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-1" href="/pricing">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-1" href="/store">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-1" href="/contact.asp">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    {% if request.user.is_authenticated %}<a class="nav-link" href="#"><i class='bx bx-bell bx-sm bx-tada-hover text-primary'></i></a>{% endif %}
+                    <a class="nav-link" href="#"><i class='bx bx-support bx-sm bx-tada-hover text-primary'></i></a>
+                    <a class="nav-link" href="/hwjwo" target="_blank"><i class='bx bx-user-circle bx-sm text-primary'></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+{% block content %}
+    <!-- Start Banner Hero -->
+    <div class="banner-wrapper bg-light">
+        <div id="index_banner" class="banner-vertical-center-index container-fluid pt-5 mb-5">
+            <div class="row">
+                <div class="col-lg-7 col-12">
+                    <!-- Start slider -->
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+
+                                <div class="py-5 row d-flex align-items-center">
+                                    <div class="banner-content col-lg-10 col-10 offset-2 m-lg-auto text-left py-5">
+                                        <h2 class="banner-heading h2 text-secondary display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
+                                            We bring <b>Nigerians</b> to you
+                                      </h2>
+                                        <p class="banner-body text-muted py-0 mx-0 px-0">
+                                            <b>Grow</b> your <b>business</b> in Nigeria.
+                                            Promote & Advertise content to over <b>21,926,785</b>
+                                            people all across nigeria <b>online and outdoor</b>.
+                                         </p>
+                                            <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4 m-3" href="#run-ads" role="button">Post a project</a>
+                                            <a class="banner-button btn rounded-pill btn-primary btn-lg px-4 m-3" href="#run-ads" role="button">Search for agencies</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+
+                                <div class="py-5 row d-flex align-items-center">
+                                    <div class="banner-content col-lg-10 col-10 offset-2 m-lg-auto text-left py-5 pb-lg-5">
+                                        <h2 class="banner-heading h2 text-secondary display-3 mb-0 pb-3 mx-0 px-0 light-300">
+                                            Find Top Advertising Agencies in Nigeria
+                                        </h2>
+                                        <p class="banner-body text-muted py-3">
+                                            Connect with Companies and Influencers
+                                        </p>
+                                        <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="#" role="button">Get Started</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+
+                                <div class="py-5 row d-flex align-items-center">
+                                    <div class="banner-content col-lg-10 col-10 offset-2 m-lg-auto text-left py-5 pb-lg-5">
+                                        <h2 class="banner-heading h2 text-secondary display-3 mb-0 pb-3 mx-0 px-0 light-300">
+                                            Drive income like never before.
+                                        </h2>
+                                        <p class="banner-body text-muted py-3">
+                                            Place ads for free
+                                        </p>
+                                        <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="#" role="button">Get Started</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- End slider -->
+
+                </div>
+                <div class="d-none d-lg-block col-5">
+                    <img src="{% static 'img/model-2.jpg' %}" id="model-2">
+<!--                    <p id="model-2-text">Prince<br>Sales Executive</p>-->
+<!--                    <small>! add text directly to image for sreen compatibility</small>-->
+                    <img src="{% static 'img/model-1.jpg' %}" id="model-1" >
+<!--                    <p id="model-1-text">Hauwa <br> Influencer</p>-->
+
+                    <div id="model-desc">
+                        <i class="bx bxs-star" style="color: gold"></i>
+                        <i class="bx bxs-star" style="color: gold"></i>
+                        <i class="bx bxs-star" style="color: gold"></i>
+                        <i class="bx bxs-star" style="color: gold"></i>
+                        <i class="bx bxs-star" style="color: gold"></i>
+                        <p>
+                            <b>Prince</b> found <b>Hauwa</b><br> for a new <b>product launch</b>
+                        </p>
+                    </div>
+
+<!--                    <a href="https://unsplash.com/photos/4Yv84VgQkRM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">Credit</a>-->
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- End Banner Hero -->
+
+
+<br>
+
+    <!-- Start Service -->
+    <section class="service-wrapper">
+        <div class="container-fluid pb-3">
+            <div class="row">
+                <h3 class="h2 text-center col-12 py-5 semi-bold-600">Trusted by 100+ businesses accross Nigeria</h3>
+
+            </div>
+
+<!--            -->
+
+        </div>
+
+        <div id="run-ads" class="service-tag py-5 bg-dark">
+            <div class="col-md-12">
+                <h2 class="col-md-6 m-auto h2 text-light text-center px-5 semi-bold-600 py-3">Find an Agency</h2>
+                <ul class="nav d-flex justify-content-center">
+                    <li class="nav-item mx-lg-4">
+                        <a class="filter-btn nav-link btn-outline-primary active shadow rounded-pill text-light px-4 light-300" href="#" data-filter=".project">All</a>
+                    </li>
+                    {% for i in categories %}
+                    {% if i.children.all %}
+                        <li class="nav-item mx-lg-4">
+                            <a class="filter-btn nav-link btn-outline-primary rounded-pill text-light px-4 light-300" href="#" data-filter=".{{i.get_title}}">{{i.title}} Advertising</a>
+                        </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="container overflow-hidden py-5">
+        <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
+
+            {% for i in categories %}
+                {% if not i.children.all %}
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project {{i.parent.get_title}} {% if i.parent.parent %}{{ i.get_parent.slug }}{% endif %}">
+                        <a href="connect/{{i.slug}}" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="service card-img" src="{% static 'img/categories' %}/{{i.get_title}}.jpg" alt="Card image">
+                            <div class="service-work-vertical card-img-overlay d-flex align-items-end">
+                                <div class="service-work-content text-left text-light">
+                                    <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">{{i.title}}</span>
+                                    <p class="card-text">{{i.headline}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div><!-- End Recent Work -->
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    <!-- End Service -->
+
+
+    <!-- Start View Work -->
+    <section class="bg-dark">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center text-center">
+                <div class="col-lg-2 col-12 text-light align-items-center">
+                    <i class='display-1 bx bx-broadcast bx-lg'></i>
+                </div>
+                <div class="col-lg-7 col-12 text-light pt-2">
+                    <h3 class="h3 light-300">Join Nigeria's largest online community of marketing and advertising agencies.</h3>
+                    <p class="light-300">
+                        Every month, more than 20k people search, compare, and hire agencies like yours here on Nigerian Advertising.
+                        <a href="">Learn more</a>
+                    </p>
+                </div>
+                <div class="col-lg-3 col-12 pt-4">
+                    <a href="#" class="btn btn-primary rounded-pill btn-block shadow px-4 py-2">Get listed</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End View Work -->
+
+
+    <!-- Start Recent Work -->
+    <section class="py-5 mb-5">
+        <div class="container">
+            <div class="recent-work-header row text-center pb-5">
+                <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5">Need help getting started?</h2>
+                <p class="light-300">Meet with the right agencies within 24 hours, at no cost. Source for the best agencies at your own pace.</p>
+            </div>
+            <div class="row gy-5 g-lg-5 mb-4">
+
+                <!-- Start Recent Work -->
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
+                        <img class="recent-work-img card-img" src="{% static 'img/recent-work-01.jpg' %}" alt="Card image">
+                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
+                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
+                                <h4 class="card-title bold-300">Post a project. Meet agencies.</h4>
+                                <p class="card-text">
+                                    Describe your needs so our software can suggest the best agencies for you.
+                                    Connect with the ones you like and hire your favorite.
+                                    See how it works
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!-- End Recent Work -->
+
+                <!-- Start Recent Work -->
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
+                        <img class="recent-work-img card-img" src="{% static 'img/recent-work-02.jpg' %}" alt="Card image">
+                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
+                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
+                                <h4 class="card-title bold-300">Explore our catalog of providers.</h4>
+                                <p class="card-text">
+                                    Search through a database of talented service providers and collaborate with the best for your specific needs.
+
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!-- End Recent Work -->
+
+                <!-- Start Recent Work -->
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
+                        <img class="recent-work-img card-img" src="{% static 'img/recent-work-03.jpg' %}" alt="Card image">
+                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
+                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
+                                <h4 class="card-title bold-300">Let us be your personal advisors.</h4>
+                                <p class="card-text">
+
+
+        Let our industry experts help you choose the best suited agency and turn your idea into a successful business project.
+
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- End Recent Work -->
+            <div class="recent-work-header row text-center pb-5">
+                <div class="service-header col-2 col-lg-3 text-end light-300 pt-5">
+                    <i class='bx bx-gift h3 mt-1'></i>
+                </div>
+                <div class="service-heading col-10 col-lg-9 text-start float-end light-300 pt-5">
+                    <h2 class="h3 pb-4 typo-space-line">Get direct access to verified agencies in 10+ services.</h2>
+                </div>
+                    <p class="service-footer col-10 offset-2 col-lg-9 offset-lg-3 text-start pb-3 text-muted px-0">
+                        Browse our frequently updated catalog of agencies. Discover the most relevant agencies for your project based on your own specific requirements.
+                    </p>
+<!--                <h2 class="col-md-6 mx-auto h2 semi-bold-600 pt-5">More things you can do on NGAds.</h2>-->
+<!--                <p class="light-300">Ads shown on websites with our api. Refreshes at 12:00 AM WAT</p>-->
+            </div>
+                <!-- Start Recent Work -->
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
+                        <img class="recent-work-img card-img" src="{% static 'img/recent-work-04.jpg' %}" alt="Card image">
+                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
+                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
+                                <h4 class="card-title bold-300">Start or Join an Agency</h4>
+                                <p class="card-text">
+                                    Connect with other digital marketers, influencers, sales experts and more
+                                    to create new marketing agencies.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!-- End Recent Work -->
+
+                <!-- Start Recent Work -->
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
+                        <img class="recent-work-img card-img" src="{% static 'img/recent-work-06.jpg' %}" alt="Card image">
+                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
+                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
+                                <h4 class="card-title bold-300">Integrate Ads into your Website</h4>
+                                <p class="card-text">Place ads on your site and get paid per views or clicks</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!-- End Recent Work -->
+
+                <!-- Start Recent Work -->
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
+                        <img class="recent-work-img card-img" src="{% static 'img/recent-work-05.jpg' %}" alt="Card image">
+                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
+                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
+                                <h4 class="card-title bold-300">Become a Certified Marketer</h4>
+                                <p class="card-text">
+                                    Browse our catalog of free marketing books, articles and courses to study,
+                                    then take the monthly certification examination.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!-- End Recent Work -->
+
+            </div>
+        </div>
+    </section>
+    <!-- End Recent Work -->
+
+
+    {% endblock %}
+
+    <!-- Start Footer -->
+    <footer class="bg-dark pt-4">
+        <div class="container">
+            <div class="row py-4">
+
+                <div class="col-lg-3 col-12 align-left">
+                    <a class="navbar-brand" href="/">
+                        <i class='bx bx-buildings bx-sm text-light'></i>
+                        <span class="text-light h5">Nigerian</span> <span class="text-light h5 semi-bold-600">Advertising</span>
+                    </a>
+                    <p class="text-light my-lg-4 my-2">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut.
+                    </p>
+                    <ul class="list-inline footer-icons light-300">
+                        <li class="list-inline-item m-0">
+                            <a class="text-light" target="_blank" href="http://facebook.com/">
+                                <i class='bx bxl-facebook-square bx-md'></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item m-0">
+                            <a class="text-light" target="_blank" href="https://www.linkedin.com/">
+                                <i class='bx bxl-linkedin-square bx-md'></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item m-0">
+                            <a class="text-light" target="_blank" href="https://www.whatsapp.com/">
+                                <i class='bx bxl-whatsapp-square bx-md'></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item m-0">
+                            <a class="text-light" target="_blank" href="https://www.flickr.com/">
+                                <i class='bx bxl-flickr-square bx-md'></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item m-0">
+                            <a class="text-light" target="_blank" href="https://www.medium.com/">
+                                <i class='bx bxl-medium-square bx-md' ></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 my-sm-0 mt-4">
+                    <h3 class="h4 pb-lg-3 text-light light-300">Our Company</h3>
+                        <ul class="list-unstyled text-light light-300">
+                            <li class="pb-2">
+                                <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light" href="/">Home</a>
+                            </li>
+                            <li class="pb-2">
+                                <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="about.html">About Us</a>
+                            </li>
+                            <li class="pb-2">
+                                <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="work.html">Work</a>
+                            </li>
+                            <li class="pb-2">
+                                <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="pricing.html">Price</a>
+                            </li>
+                            <li class="pb-2">
+                                <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="/contact">Contact</a>
+                            </li>
+                        </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 my-sm-0 mt-4">
+                    <h2 class="h4 pb-lg-3 text-light light-300">Our Works</h2>
+                    <ul class="list-unstyled text-light light-300">
+                        <li class="pb-2">
+                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Post Project</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Find Agencies</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Special Assistance</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Social Media</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Digital Solution</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="#">Graphic</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 my-sm-0 mt-4">
+                    <h2 class="h4 pb-lg-3 text-light light-300">For Client</h2>
+                    <ul class="list-unstyled text-light light-300">
+                        <li class="pb-2">
+                            <i class='bx-fw bx bx-phone bx-xs'></i><a class="text-decoration-none text-light py-1" href="tel:010-020-0340">010-020-0340</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class='bx-fw bx bx-mail-send bx-xs'></i><a class="text-decoration-none text-light py-1" href="mailto:info@company.com">info@company.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="w-100 bg-primary py-3 text-center">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-center text-light light-300">
+                            © Copyright 2022 Nigerian Advertising Company. All Rights Reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+{% block js %}
+    <!-- Bootstrap -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Load jQuery require for isotope -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Isotope -->
+    <script src="{% static 'js/isotope.pkgd.js' %}"></script>
+    <!-- Page Script -->
+    <script>
+        $(window).load(function() {
+            // init Isotope
+            var $projects = $('.projects').isotope({
+                itemSelector: '.project',
+                layoutMode: 'fitRows'
+            });
+            $(".filter-btn").click(function() {
+                var data_filter = $(this).attr("data-filter");
+                $projects.isotope({
+                    filter: data_filter
+                });
+                $(".filter-btn").removeClass("active");
+                $(".filter-btn").removeClass("shadow");
+                $(this).addClass("active");
+                $(this).addClass("shadow");
+                return false;
+            });
+        });
+    </script>
+    <!-- Templatemo -->
+    <script src="{% static 'js/templatemo.js' %}"></script>
+    <!-- Custom -->
+    <script src="{% static 'js/custom.js' %}"></script>
+{% endblock %}
+</div>
+</body>
+
+</html>

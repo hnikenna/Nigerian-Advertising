@@ -1,0 +1,179 @@
+/*
+Custom CSS for TemplateMo 561 Purple Buzz
+
+https://templatemo.com/tm-561-purple-buzz
+
+*/
+
+
+::selection {
+  background: none;
+  color: #8E93F4;
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    z-index: 100
+}
+
+.sticky:hover {
+      background-color: #6266ea;
+}
+
+#model-1 {
+    position: absolute;
+    top: 150px;
+    right: 60px;
+    width: 20%;
+    border-radius: 15px;
+    border: 2px solid white;
+/*    transform: rotate(10deg);*/
+}
+
+#model-2 {
+    position: absolute;
+    top: 100px;
+    right: 250px;
+    width: 20%;
+    border-radius: 15px;
+    border: 2px solid white;
+/*    transform: rotate(-10deg);*/
+}
+
+#model-2-text {
+    position: relative;
+    z-index: 3;
+    color: white;
+    top: 60px;
+    right: -30px;
+/*    transform: rotate(-10deg);*/
+}
+
+#model-1-text {
+    position: absolute;
+    color: white;
+    top: 240px;
+    right: 225px;
+    text-align: left;
+/*    transform: rotate(10deg);*/
+
+}
+
+#model-desc {
+    position: absolute;
+    background-color: white;
+    top: 400px;
+    right: 180px;
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.cover-photo {
+    position: relative;
+    height: 100px;
+}
+
+.logo {
+    position: relative;
+    background: #646460;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+.gold {
+    color: gold;
+}
+
+.gray {
+    color: gray;
+}
+.split-left {
+  height: 90%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  left: 0;
+}
+
+.split-right {
+  height: 90%;
+  width: 85%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  right: 0;
+}
+
+.curved {
+    border-radius: 15px;
+}
+
+
+/*----------------------------*\
+	Search
+\*----------------------------*/
+
+.header-search {
+  padding: 15px 0px;
+}
+
+.header-search form {
+  position: relative;
+}
+
+.header-search form .input-select {
+  margin-right: -4px;
+  border-radius: 40px 0px 0px 40px;
+}
+
+.header-search form .input {
+  width: calc(100% - 260px);
+  margin-right: -4px;
+}
+
+.header-search form .search-btn {
+  height: 40px;
+  width: 100px;
+  background: #6266ea;
+  color: #FFF;
+  font-weight: 700;
+  border: none;
+  border-radius: 0px 40px 40px 0px;
+}
+.input-select {
+  padding: 0px 15px;
+  background: #FFF;
+  border: 1px solid #E4E7ED;
+  height: 40px;
+}
+.input {
+  height: 40px;
+  padding: 0px 15px;
+  border: 1px solid #E4E7ED;
+  background-color: #FFF;
+  width: 100%;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.split {
+  height: 100%;
+  /*width: 50%;*/
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}

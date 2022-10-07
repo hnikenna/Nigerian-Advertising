@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="container overflow-hidden py-5 mt-5">
+        <div >
+            <textarea></textarea>
+        </div>
+        <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
+
+            {% for i in categories %}
+                {% if not i.hidden %}
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project {{i.parent.get_title}} {% if i.parent.parent %}{{ i.get_parent.slug }}{% endif %}">
+                        <a href="connect/{{i.parent.get_title}}/{{i.slug}}" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="service card-img" src="{% static 'img/categories' %}/{{i.get_title}}.jpg" alt="Card image">
+                            <div class="service-work-vertical card-img-overlay d-flex align-items-end">
+                                <div class="service-work-content text-left text-light bg-dark curved p-2">
+                                    <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">{{i.title}}</span>
+                                    <p class="card-text">{{i.headline}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div><!-- End Recent Work -->
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+
+{% endblock %}
+{% block js%}
+    <!-- Bootstrap -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Lightbox -->
+    <script src="{% static 'js/fslightbox.js' %}"></script>
+    <script>
+        fsLightboxInstances['gallery'].props.loadOnlyCurrentSource = true;
+    </script>
+    <!-- Load jQuery require for isotope -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Isotope -->
+    <script src="{% static 'js/isotope.pkgd.js' %}"></script>
+    <!-- Page Script -->
+    <script>
+        $(window).load(function() {
+            // init Isotope
+            var $projects = $('.projects').isotope({
+                itemSelector: '.project',
+                layoutMode: 'fitRows'
+            });
+            $(".filter-btn").click(function() {
+                var data_filter = $(this).attr("data-filter");
+                $projects.isotope({
+                    filter: data_filter
+                });
+                $(".filter-btn").removeClass("active");
+                $(".filter-btn").removeClass("shadow");
+                $(this).addClass("active");
+                $(this).addClass("shadow");
+                return false;
+            });
+        });
+    </script>
+    <!-- Templatemo -->
+    <script src="{% static 'js/templatemo.js' %}"></script>
+    <!-- Custom -->
+    <script src="{% static 'js/custom.js' %}"></script>
+
+{% endblock %}
