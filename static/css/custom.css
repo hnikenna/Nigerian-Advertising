@@ -46,7 +46,8 @@ https://templatemo.com/tm-561-purple-buzz
     z-index: 3;
     color: white;
     top: 60px;
-    right: -30px;
+    right: -50px;
+    font-size: 1.2vw;
 /*    transform: rotate(-10deg);*/
 }
 
@@ -54,7 +55,7 @@ https://templatemo.com/tm-561-purple-buzz
     position: absolute;
     color: white;
     top: 240px;
-    right: 225px;
+    right: 250px;
     text-align: left;
 /*    transform: rotate(10deg);*/
 
@@ -69,7 +70,7 @@ https://templatemo.com/tm-561-purple-buzz
     border-radius: 10px;
     text-align: center;
     padding: 15px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(98, 102, 234, 0.3) 0px 1px 3px -1px;
 }
 
 .cover-photo {
@@ -176,4 +177,90 @@ https://templatemo.com/tm-561-purple-buzz
   top: 0;
   overflow-x: hidden;
   padding-top: 20px;
+}
+
+.rating {
+  --dir: right;
+  --fill: gold;
+  --fillbg: rgba(100, 100, 100, 0.15);
+  --heart: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.328l-1.453-1.313q-2.484-2.25-3.609-3.328t-2.508-2.672-1.898-2.883-0.516-2.648q0-2.297 1.57-3.891t3.914-1.594q2.719 0 4.5 2.109 1.781-2.109 4.5-2.109 2.344 0 3.914 1.594t1.57 3.891q0 1.828-1.219 3.797t-2.648 3.422-4.664 4.359z"/></svg>');
+  --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
+  --stars: 5;
+  --starsize: 2rem;
+  --symbol: var(--star);
+  --value: 1;
+  --w: calc(var(--stars) * var(--starsize));
+  --x: calc(100% * (var(--value) / var(--stars)));
+  block-size: var(--starsize);
+  inline-size: var(--w);
+  position: relative;
+  touch-action: manipulation;
+  -webkit-appearance: none;
+}
+[dir="rtl"] .rating {
+  --dir: left;
+}
+.rating::-moz-range-track {
+  background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+  block-size: 100%;
+  mask: repeat left center/var(--starsize) var(--symbol);
+}
+.rating::-webkit-slider-runnable-track {
+  background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+  block-size: 100%;
+  mask: repeat left center/var(--starsize) var(--symbol);
+  -webkit-mask: repeat left center/var(--starsize) var(--symbol);
+}
+.rating::-moz-range-thumb {
+  height: var(--starsize);
+  opacity: 0;
+  width: var(--starsize);
+}
+.rating::-webkit-slider-thumb {
+  height: var(--starsize);
+  opacity: 0;
+  width: var(--starsize);
+  -webkit-appearance: none;
+}
+.rating, .rating-label {
+  display: block;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.rating-label {
+  margin-block-end: 1rem;
+}
+
+.review-icon {
+/*    border: 1px solid black;*/
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    color: #343434;
+
+/*    box-shadow: rgba(98, 102, 234, 0.17) 0px -23px 25px 0px inset, rgba(98, 102, 234, 0.15) 0px -36px 30px 0px inset, rgba(98, 102, 234, 0.1) 0px -79px 40px 0px inset, rgba(98, 102, 234, 0.06) 0px 2px 1px, rgba(98, 102, 234, 0.09) 0px 4px 2px, rgba(98, 102, 234, 0.09) 0px 8px 4px, rgba(98, 102, 234, 0.09) 0px 16px 8px, rgba(98, 102, 234, 0.09) 0px 32px 16px;*/
+
+}
+
+.review-icon h4 {
+    position: relative;
+    top: 15%;
+    left: 3%;
+    font-family: Georgia;
+    font-weight: bolder;
+}
+
+.float-card {
+    display: block;
+    position: fixed;
+    z-index: 500;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    top: 15%;
+    left: 15%
+    width: 50%;
+}
+
+.border-purple {
+/*    border: 1px solid #6266ea;*/
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }

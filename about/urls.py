@@ -12,5 +12,6 @@ urlpatterns = [
     path('connect/<slug>/', category, name='category'),
     path('connect/<category>/<slug>/', sub_category, name='sub category'),
     path('agency/<slug>/', agency, name='agency'),
-    path('store/', search, name='find agency'),
+    path('store/', store, name='store'),
+    path('review/', add_review, name='add review'),
 ]

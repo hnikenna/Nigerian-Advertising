@@ -89,8 +89,6 @@ class SubCategory(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='subcategories', blank=True, null=False)
 
-    def __str__(self):
-        return self.title
 
     class Meta:
         # enforcing that there can not be two categories under a parent with same slug
@@ -184,6 +182,7 @@ class Agent(models.Model):
 
         if self.cover_photo == '':
             self.cover_photo = "default/white.png"
+
         super(Agent, self).save(*args, **kwargs)
 
     def get_tags(self):
@@ -199,6 +198,18 @@ class Agent(models.Model):
         tags = ' '.join(tag_list)
         # print('\n\nTags:', tags)
         return tags
+
+    def get_rating(self):
+        rating = 0
+        reviews = self.reviews()
+        for review in reviews:
+            rating += review.rating
+        if not len(reviews):
+            reviews = ['']
+        rating = rating / len(reviews)
+        self.rating = round(rating, 1)
+        self.save()
+        return round(rating, 1)
 
     def get_href_tags(self):
         tag_list = []
@@ -275,6 +286,9 @@ class Agent(models.Model):
                 star_box.append('bx-star')
         return star_box
 
+    def reviews(self):
+        return Review.objects.filter(owner=self)
+
 
 class Feature(models.Model):
     name = models.CharField(max_length=250, null=False)
@@ -314,3 +328,57 @@ class Keyword(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class Review(models.Model):
+
+    STATUS_CHOICES = [
+        ('0', 'Pending'),
+        ('1', 'Approved'),
+        # ('', ''),
+    ]
+
+    owner = models.ForeignKey(Agent, on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True)
+    name = models.CharField(max_length=250)
+    email = models.EmailField()
+    message = models.TextField(max_length=7500)
+    status = models.CharField(max_length=250, choices=STATUS_CHOICES)
+    rating = models.FloatField(max_length=5, blank=True, null=True)
+    position = models.CharField(max_length=250, blank=True, null=True)
+
+    def __str__(self):
+        return breadcrumb(self.message, 100)
+
+    def get_letter(self):
+        words = str(self.name).split()
+        new = []
+
+        for word in words:
+            if word.endswith('.') and len(words) > 2:
+                continue
+            new.append(word[0].upper())
+
+        return ''.join([new[0], new[-1] if new[-1] is not new[0] else ''])
+
+    def get_color(self):
+        email = self.email
+        # color = 'rgb(255, 255, 255)'
+        vals = randcolor(128, 255)  # Allow only bright colors
+        return f'rgb({vals[0]}, {vals[2]}, {vals[2]})'
+
+    def get_rating_stars(self):
+        rating = self.rating
+        if rating == None:
+            rating = 0
+        mid_rating = int(rating) + 0.5
+        star_box = []
+        for i in range(int(rating)):
+            star_box.append('bxs-star')
+        for i in range(5):
+            if rating >= mid_rating and 'bxs-star-half' not in star_box:
+                star_box.append('bxs-star-half')
+            if len(star_box) < 5:
+                star_box.append('bx-star')
+        return star_box
+

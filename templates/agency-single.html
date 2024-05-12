@@ -27,12 +27,12 @@
 
                 </h2>
                 <h6 class="d-flex m-3">
-                    <b class="text-dark">{{agent.rating|default_if_none:""}}&nbsp;</b>
+                    <b class="text-dark">{{agent.get_rating|default_if_none:""}}&nbsp;</b>
                      {% for i in agent.get_rating_stars %}
                     <i class="bx {{i}} gold mt-1"></i>
 
                     {% endfor %}
-                    <small class="text-dark mt-1"> ({{agent.collab|default_if_none:"~"}})</small>
+                    <small class="text-dark mt-1"> ({{agent.reviews.count|default_if_none:"~"}})</small>
 
 
                 </h6>
@@ -51,15 +51,38 @@
                     <button class="btn btn-outline-success mx-2"><i class="bx bx-log-out m-1"> </i>Visit website </button>
                     </a>{% endif %}
 
+
                 </div>
-                <p class="worksingle-footer py-3 text-muted light-300">
+<!--                <p class="worksingle-footer py-3 text-muted light-300">-->
+<!--                    {{agent.headline}}-->
+<!--                </p>-->
+            </div>
+        </div><!-- End Blog Cover -->
+        <hr/>
+
+        <div class="row">
+            <div class="col-lg-8 m-auto text-left justify-content-center">
+                <h4>About</h4>
+                <p class="pb-5 text-muted light-300">
                     {{agent.description}}
                 </p>
             </div>
-        </div><!-- End Blog Cover -->
+        </div><!-- End About -->
+
+        <div class="row">
+            <div class="col-lg-8 m-auto text-left justify-content-center">
+                <h4>Services</h4>
+                <p class="pb-5 text-muted light-300">
+                    {{agent.get_service_tags}}
+                </p>
+            </div>
+        </div><!-- End Services -->
+
 
         <div class="row justify-content-center pb-4">
+
             <div class="col-lg-8">
+                <h4>Portfolio</h4>
                 <div id="templatemo-slide-link-target" class="card mb-3">
                     <img class="img-fluid border rounded" src="{% static 'img/work-slide-04.jpg' %}" alt="Card image cap">
                 </div>
@@ -189,19 +212,11 @@
 
                 </div>
             </div>
-        </div><!-- End Slider -->
-
-        <div class="row">
-            <div class="col-md-8 m-auto text-left justify-content-center">
-                <p class="pt-5 text-muted light-300">
-                    You are permitted to download, modify and use Purple Buzz template for your websites. You are <strong>not permitted</strong> to re-distribute this template ZIP file on any other template websites. It is super easy to simply copy and repost the ZIP file on any <a rel="nofollow" href="https://www.google.com/search?q=free+css" target="_blank">Free CSS</a> template websites.
-                </p>
-            </div>
-        </div><!-- End Paragrph -->
-
+        </div><!-- End Portfolio -->
 
         <div class="row justify-content-center">
             <div class="col-lg-8 pt-4 pb-4">
+                <h4>Team</h4>
                 <div class="ratio ratio-16x9">
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1z--ZRS5x5U" allowfullscreen></iframe>
                 </div>
@@ -209,7 +224,9 @@
         </div><!-- End Video -->
 
         <div class="row justify-content-center">
-            <div class="col-lg-8 ml-auto mr-auto pt-3 pb-4">
+            <div class="col-lg-8 m-auto text-left justify-content-center">
+<!--            <div class="col-lg-8 m-auto mr-auto pt-3 pb-4">-->
+                <h4>Awards and Certifications</h4>
                 <p class="text-muted light-300">
                     Ed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
@@ -223,145 +240,97 @@
         </div>
         <!-- End Work Sigle -->
 
+        {% if agent.reviews %}
         <!-- Start Comment -->
-        <div class="row justify-content-center">
-            <div class="worksingle-comment-heading col-8 m-auto pb-3">
-                <h4 class="h5">Reviews({{agent.collab}})</h4>
+        <div class="col-lg-8 m-auto text-left justify-content-center pb-5">
+            <h4 class="h4">Reviews({{agent.reviews.count}})</h4>
+
+
+        {% for review in agent.reviews %}
+        <div class="row py-2">
+            <div class="worksingle-comment-body">
+                <div class="row">
+                    <div class="col-2 col-md-1">
+                        <div class="ml-0 text-center review-icon" style="background-color: {{review.get_color}};">
+                            <h4 class="p-2">{{review.get_letter}}</h4>
+                        </div>
+                    </div>
+                    <div class="col-10 col-md-11 comment-body pl-0 ps-lg-3">
+                        <div class="comment-header d-flex justify-content-between ms-3">
+                            <div class="header text-start">
+                                <h5 class="h6">{{review.name}}</h5>
+                                {% if review.position %}<p class="text-muted light-300">{{review.position}}</p>{% endif %}
+                            </div>
+<!--                            <a href="#" class="text-decoration-none text-secondary"><i class='bx bxs-share me-2'></i>Reply</a>-->
+                        </div>
+                        <div class="footer">
+
+                            <div class="card-body border-purple ms-3 light-300">
+                                <div class="d-flex">
+                                    {% for i in review.get_rating_stars %}
+                                    <i class="bx {{i}} gold mt-1"></i>
+                                    {% endfor %}
+                                    <p class="px-2">(<strong>{{review.rating}}</strong>/5.0)</p>
+                                </div>
+                                {{review.message}}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div><!-- End Comment -->
+        {% endfor %}
         </div>
+        {% endif %}
 
         <div class="row pb-4">
-            <div class="worksingle-comment-body col-md-8 m-auto">
-                <div class="d-flex">
-                    <div>
-                        <img class="rounded-circle" src="{% static 'img/team-05.jpg' %}" style="width: 50px;">
-                    </div>
-                    <div class="comment-body">
-                        <div class="comment-header d-flex justify-content-between ms-3">
-                            <div class="header text-start">
-                                <h5 class="h6">John Doe</h5>
-                                <p class="text-muted light-300">10 mins ago</p>
-                            </div>
-                            <a href="#" class="text-decoration-none text-secondary"><i class='bx bxs-share me-2'></i>Reply</a>
-                        </div>
-                        <div class="footer">
-                            <div class="card-body border ms-3 light-300">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- End Comment -->
+            <div class="col-lg-8 m-auto text-left justify-content-center">
+<!--                <h4 class="h5 a">Add a review</h4>-->
+                <a class="banner-button btn rounded-pill btn-primary btn-lg px-4 m-3" href="javascript: void()" role="button" onclick="$('#review-form').toggle()">Add a review</a>
+                <form id="review-form" class="col-md-12 m-auto" style="display: none;" method="POST" action="/review/" role="form">
+<!--                    <h1 class="text-end">X</h1>-->
+                    {% csrf_token %}
+                    <div class="form-group pb-2">
+                        <label class="pb-1 pt-sm-0 pt-4 light-300" for="inputrating">Rating</label>
 
-
-        <div class="row pb-4">
-            <div class="col-lg-8 m-auto">
-                <div class="d-flex">
-                    <div>
-                        <img class="rounded-circle" src="{% static 'img/team-01.jpg' %}" style="width: 50px;">
+                        <input
+                                id="inputrating" name="inputrating" class="rating" max="5"
+                               oninput="this.style.setProperty('--value', this.value)"
+                               step="0.5" type="range" value="1"
+                        >
                     </div>
-                    <div class="comment-body">
-                        <div class="comment-header d-flex justify-content-between ms-3">
-                            <div class="header text-start">
-                                <h5 class="h6">Jane Doe</h5>
-                                <p class="text-muted light-300">5 mins ago</p>
-                            </div>
-                            <a href="#" class="text-decoration-none text-secondary"><i class='bx bxs-share me-2'></i>Reply</a>
-                        </div>
-                        <div class="footer">
-                            <div class="card-body border ms-3 light-300">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- End Comment -->
-
-
-        <div class="row pb-4">
-            <div class="col-lg-8 m-auto">
-                <div class="d-flex ml-4">
-                    <div>
-                        <img class="rounded-circle" src="{% static 'img/team-05.jpg' %}" style="width: 50px;">
-                    </div>
-                    <div class="comment-body">
-                        <div class="comment-header d-flex justify-content-between ms-3">
-                            <div class="header text-start">
-                                <h5 class="h6">John Doe</h5>
-                                <p class="text-muted light-300">15 mins ago</p>
-                            </div>
-                            <a href="#" class="text-decoration-none text-secondary"><i class='bx bxs-share me-2'></i>Reply</a>
-                        </div>
-                        <div class="footer">
-                            <div class="card-body border ms-3 light-300">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- End Comment -->
-
-
-        <div class="row pb-4">
-            <div class="col-lg-8 m-auto">
-                <div class="d-flex ml-5">
-                    <div>
-                        <img class="rounded-circle" src="{% static 'img/team-01.jpg' %}" style="width: 50px;">
-                    </div>
-                    <div class="comment-body">
-                        <div class="comment-header d-flex justify-content-between ms-3">
-                            <div class="header text-start">
-                                <h5 class="h6">Jane Doe</h5>
-                                <p class="text-muted light-300">16 mins ago</p>
-                            </div>
-                            <a href="#" class="text-decoration-none text-secondary"><i class='bx bxs-share me-2'></i>Reply</a>
-                        </div>
-                        <div class="footer">
-                            <div class="card-body border ms-3 light-300">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- End Comment -->
-
-
-        <div class="row pb-4">
-            <div class="worksingle-comment-footer col-lg-8 m-auto">
-                <h4 class="h5">Leave Comment</h4>
-                <form class="col-md-12 m-auto" method="POST" action="#" role="form">
 
                     <div class="form-group">
-                        <label class="pb-2 pt-sm-0 pt-4 light-300" for="inputmessage">Your Comment</label>
-                        <textarea class="form-control form-control-lg light-300" id="inputmessage" name="inputmessage" placeholder="Your Comment" rows="5"></textarea>
+                        <label class="pb-2 pt-sm-0 pt-4 light-300" for="inputmessage">Message <sup>*</sup></label>
+                        <textarea class="form-control form-control-lg light-300" required id="inputmessage" name="inputmessage" placeholder="Your Message" rows="5"></textarea>
                     </div>
 
+
                     <div class="row py-4">
-                        <div class="col-lg-6">
-                            <label class="pb-2 light-300" for="inputname">Name</label>
-                            <input type="text" class="form-control form-control-lg light-300" id="inputname" name="inputname" placeholder="Name">
+                        <div class="col-lg-4">
+                            <label class="pb-2 light-300" for="inputname">Name *</label>
+                            <input type="text" required class="form-control form-control-lg light-300" id="inputname" name="inputname" placeholder="Name">
+                            <input type="hidden" name="inputowner" id="inputowner" value="{{agent.id}}">
                         </div>
-                        <div class="col-lg-6">
+
+                        <div class="col-lg-4">
                             <label class="pb-2 pt-sm-0 pt-4 light-300" for="inputemail">Email</label>
-                            <input type="email" class="form-control form-control-lg light-300" id="inputemail" name="inputemail" placeholder="Email">
+                            <input type="email" required class="form-control form-control-lg light-300" id="inputemail" name="inputemail" placeholder="Email">
                         </div>
+
+                        <div class="col-lg-4">
+                            <label class="pb-2 light-300" for="inputname">Position</label>
+                            <input type="text" class="form-control form-control-lg light-300" id="inputposition"
+                                   name="inputposition" placeholder="IT Manager at Softina">
+
+                        </div>
+
                     </div>
 
                     <div class="form-row pt-2">
                         <div class="col-md-12 col-10 text-end">
-                            <button type="submit" class="btn btn-secondary text-white px-md-4 px-2 py-md-3 py-1 radius-0 light-300">Send Message</button>
+                            <button type="submit" class="btn btn-secondary text-white px-md-4 px-2 py-md-3 py-1 radius-0 light-300">Submit review</button>
                         </div>
                     </div>
                 </form>

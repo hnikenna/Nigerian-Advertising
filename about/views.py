@@ -2,7 +2,12 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.views.generic import TemplateView, ListView
 from .models import *
-# Create your views here.
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
+
+
+# Account Utils
+def go_back(request):
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
 class HomeView(ListView):
@@ -62,7 +67,7 @@ def connect(request):
     states = State.objects.all().order_by('-priority')
     context = {'states': states,'categories': categories, 'category': category,
                'services': services, 'page_obj': page_obj, 'page_count': page_count}
-    return render(request, 'work.html', context)
+    return render(request, 'agency-list.html', context)
 
 
 def category(request, slug):
@@ -116,7 +121,7 @@ def category(request, slug):
     states = State.objects.all().order_by('-priority')
     context = {'states': states, 'category': category, 'categories': categories,
                'services': services, 'page_obj': page_obj, 'page_count': page_count}
-    return render(request, 'work.html', context)
+    return render(request, 'agency-list.html', context)
 
 
 def sub_category(request, category, slug):
@@ -145,7 +150,7 @@ def sub_category(request, category, slug):
     page_obj = paginator.get_page(page_number)
     states = State.objects.all()
     context = {'states': states, 'category': category, 'services': services, 'page_obj': page_obj}
-    return render(request, 'work.html', context)
+    return render(request, 'agency-list.html', context)
 
 
 def contact(request):
@@ -164,9 +169,27 @@ def pricing(request):
     return render(request, 'pricing.html', context)
 
 
-def search(request):
+def store(request):
     categories = Category.objects.all()
     services = Agent.objects.all().order_by('name')
     context = {'categories': categories, 'services': services}
     return render(request, 'store.html', context)
     # return render(request, 'find-agencies.html', context)
+
+
+def add_review(request):
+    form = request.POST
+
+    # if form.is_valid():
+    #     data = form.cleaned_data
+    print(form)
+    owner = get_object_or_404(Agent, id=form['inputowner'])
+    name = form['inputname']
+    email = form['inputemail']
+    message = form['inputmessage']
+    position = form['inputposition']
+    status = 0
+    rating = form['inputrating']
+    new_review = Review(owner=owner, name=name, email=email, message=message, status=status, rating=rating, position=position)
+    new_review.save()
+    return go_back(request)

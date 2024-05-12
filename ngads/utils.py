@@ -57,3 +57,10 @@ def duplicate_count(all_texts:list, new_texts: list):
                 count += 1
     return count
 
+
+def randcolor(start=0, end=255):
+    a = random.randint(start, end)
+    b = random.randint(start, end)
+    c = random.randint(start, end)
+    return [a, b, c]
+
